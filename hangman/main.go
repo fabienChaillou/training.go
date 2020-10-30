@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"os"
 
-	"hangman/dictionary"
-	"hangman/hangman"
+	"training.go/hangman/dictionary"
+	"training.go/hangman/hangman"
 )
 
 func main() {
@@ -14,7 +14,7 @@ func main() {
 		fmt.Printf("Could not lad dictionary: %v\n", err)
 	}
 
-	g := hangman.New(8, dictionary.PickWord())
+	g,_  := hangman.New(8, dictionary.PickWord())
 	hangman.DrawWelcome()
 	guess := ""
 	for {
@@ -33,5 +33,4 @@ func main() {
 		guess = l
 		g.MakeAGuess(guess)
 	}
-
 }
